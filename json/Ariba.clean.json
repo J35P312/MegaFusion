@@ -1,0 +1,45 @@
+{
+	"header": "#",
+	"source": "Ariba",
+	"delimiter": "\t",
+	"filter":{
+
+		"filter":0,
+		"column":19,
+		"delimiter": ",",
+		"pass":"."
+
+	},
+	"required":{
+
+		"split_reads": 12,
+		"discordant_pairs": 13,
+		"geneA":0,
+		"geneB":1,
+		"chromosomeA": {"column":4,
+				"delimiter": ":",
+				"element": 0
+				},
+		"chromosomeB": {"column":5,
+				"delimiter": ":",
+				"element": 0
+				},
+		"posA": {"column":4,
+				"delimiter": ":",
+				"element": 1
+				},
+		"posB": {"column":5,
+				"delimiter": ":",
+				"element": 1
+				},
+		"strand1": {"column":2,
+			"delimiter": "/",
+			"element": 1
+			},
+		"strand2": {"column":3,
+			"delimiter": "/",
+			"element": 1
+		}
+	},
+	"custom": {}
+}

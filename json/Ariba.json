@@ -1,0 +1,81 @@
+{
+	"header": "#",
+	"source": "Ariba",
+	"delimiter": "\t",
+	"filter":{
+
+		"filter":1,
+		"column":19,
+		"delimiter": ",",
+		"pass":"."
+
+	},
+	"required":{
+
+		"split_reads": 12,
+		"discordant_pairs": 13,
+		"geneA":0,
+		"geneB":1,
+		"chromosomeA": {"column":4,
+				"delimiter": ":",
+				"element": 0
+				},
+		"chromosomeB": {"column":5,
+				"delimiter": ":",
+				"element": 0
+				},
+		"posA": {"column":4,
+				"delimiter": ":",
+				"element": 1
+				},
+		"posB": {"column":5,
+				"delimiter": ":",
+				"element": 1
+				},
+		"strand1": {"column":2,
+			"delimiter": "/",
+			"element": 1
+			},
+		"strand2": {"column":3,
+			"delimiter": "/",
+			"element": 1
+		}
+
+	},
+	"custom": {
+		"PEPTIDE":{"column":-2,
+		"description":"peptide sequence",
+		"type":"String",
+		"entry":"INFO",
+		"none":"."
+		},
+		"SITEA":{"column":6,
+		"description":"site at breakpoint A",
+		"type":"String",
+		"entry":"INFO",
+		"none":"."
+		},
+		"SITEB":{"column":7,
+		"description":"site at breakpoint B",
+		"type":"String",
+		"entry":"INFO",
+		"none":"."
+		},
+
+		"CA":{"column":14,
+		"description":"Coverage at gene A",
+		"type":"Float",
+		"entry":"FORMAT",
+		"none":"."
+		},
+		"CB":{"column":15,
+		"description":"Coverage at gene B",
+		"type":"Float",
+		"entry":"FORMAT",
+		"none":"."
+		}
+
+
+
+	}
+}
