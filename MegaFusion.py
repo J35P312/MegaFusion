@@ -11,8 +11,8 @@ def retrieve_required_entry(data,tag,content):
 
 version = "0.0.0"
 parser = argparse.ArgumentParser("""Fusion2VCF-{}: convert gene fusion tab files to SV vcf""".format(version))
-parser.add_argument('--fusion'        , type=str,  help="path to fusion tab file")
-parser.add_argument('--json'        , type=str,  help="path to a config json file")
+parser.add_argument('--fusion'        ,required=True , type=str,  help="path to fusion tab file")
+parser.add_argument('--json'        ,required=True , type=str,  help="path to a config json file")
 parser.add_argument('--sample'        , type=str,default="Bob",  help="Sample name (default=Bob")
 args = parser.parse_args()
 args.version=version
