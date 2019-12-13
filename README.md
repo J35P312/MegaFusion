@@ -10,6 +10,10 @@ MegaFusion do not require any particular modules.
 MegaFusion is run using the following command:
 
 	python MegaFusion.py --json input.json --fusion fusion.tab > output.vcf
+	
+Specify a sample name (defualt = Bob)
+
+	python MegaFusion.py --json input.json --fusion fusion.tab --sample Sven > output.notbob.vcf
 
 The json parameter specify the path of a JSON config file, and the fusion parameter specify the path to a fusion file (produced using Ariba, star-fusion or similar tool).
 A JSON file for converting ariba files is provided in the json folder.
