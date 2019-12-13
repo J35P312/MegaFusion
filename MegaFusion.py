@@ -32,9 +32,12 @@ print("##FORMAT=<ID=GT,Number=1,Type=String,Description=\"Genotype\">")
 print("##FORMAT=<ID=DV,Number=1,Type=Integer,Description=\"Number of paired-ends that support the event\">")
 print("##FORMAT=<ID=RV,Number=1,Type=Integer,Description=\"Number of split reads that support the event\">")
 
-for entry in data["custom"]:
+required_format="GT:DV:RV"
+for entry in sorted(data["custom"].keys()):
 	try:
 		print ("##{}=<ID={},Number=.,Type={},Description=\"{}\">".format(data["custom"][entry]["entry"],entry,data["custom"][entry]["type"],data["custom"][entry]["description"]) )
+		if "FORMAT" == data["custom"][entry]["entry"]:
+			required_format+= ":{}".format(entry)
 	except:
 		print ("invalid config")
 		quit()
@@ -66,7 +69,6 @@ print("#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT {}".format(args.sample))
 required_INFO="SVTYPE=BND;CHRA={};CHRB={};GENEA={};GENEB={};ORIENTATION={},{}"
 required_columns="{}\t{}\t{}\tN\t{}\t{}\t{}\t{}\t{}\t{}"
 required_sample="./1:{}:{}"
-required_format="GT:DV:RV"
 i=1
 for line in open(args.fusion):
 	if line.startswith(data["header"]):
@@ -109,19 +111,19 @@ for line in open(args.fusion):
 			if "none" in data["custom"][entry]:
 				if data["custom"][entry]["none"] ==  content[ data["custom"][entry]["column"] ]:
 					continue
-			INFO+= ";{}={}".format(entry,content[ data["custom"][entry]["column"] ].replace(",","|"))
+			INFO+= ";{}={}".format(entry,content[ data["custom"][entry]["column"] ])
 			
 
 	pairs=retrieve_required_entry(data,"discordant_pairs",content)
 	reads=retrieve_required_entry(data,"split_reads",content)
 	FORMAT=required_sample.format(pairs,reads)
 
-	for entry in data["custom"]:
+	for entry in sorted(data["custom"].keys()):
 		if data["custom"][entry]["entry"] == "FORMAT":
 			if "none" in data["custom"][entry]:
 				if data["custom"][entry]["none"] ==  content[ data["custom"][entry]["column"] ]:
 					continue
-			FORMAT+= ";{}={}".format(entry,content[ data["custom"][entry]["column"] ].replace(",","|"))
+			FORMAT+= ":{}={}".format(entry,content[ data["custom"][entry]["column"] ])
 
 	ID="{}_Fusion_{}".format(data["source"],i)
 	qual="."
@@ -135,5 +137,7 @@ for line in open(args.fusion):
 			else:
 				qual=content[ data["filter"]["column"] ].replace(data["filter"]["delimiter"],",")
 
-	print( required_columns.format(chrA,posA,ID,altA,qual,filt,INFO,required_format,FORMAT) )
+	print( required_columns.format(chrA,posA,ID+"_1",altA,qual,filt,INFO,required_format,FORMAT) )
+	print( required_columns.format(chrB,posB,ID+"_2",altB,qual,filt,INFO,required_format,FORMAT) )
+
 	i+=1

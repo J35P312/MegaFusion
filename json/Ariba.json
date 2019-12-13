@@ -43,6 +43,12 @@
 
 	},
 	"custom": {
+		"FT":{"column":20,
+		"description":"Sequence of the fusion transript",
+		"type":"String",
+		"entry":"FORMAT",
+		"none":"."
+		},
 		"PEPTIDE":{"column":-2,
 		"description":"peptide sequence",
 		"type":"String",
