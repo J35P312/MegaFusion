@@ -89,19 +89,19 @@ for line in open(args.fusion):
 
 	if not strand1 in ["+","-"] or not strand2 in ["+","-"]:
 		altA="N[{}:{}[".format(chrB,posB)
-		altB="]{}:{}]N".format(chrB,posB)
+		#altB="]{}:{}]N".format(chrB,posB)
 	elif strand1 == "-" and strand2 == "-":
 		altA="[{}:{}[N".format(chrB,posB)
-		altB="[{}:{}[N".format(chrB,posB)
+		#altB="[{}:{}[N".format(chrB,posB)
 	elif strand1 == "+" and strand2 == "-":
 		altA="N]{}:{}]".format(chrB,posB)
-		altB="N]{}:{}]".format(chrB,posB)
+		#altB="N]{}:{}]".format(chrB,posB)
 	elif strand1 == "-" and strand2 == "+":
 		altA="N]{}:{}]".format(chrB,posB)
-		altB="N]{}:{}]".format(chrB,posB)
+		#altB="N]{}:{}]".format(chrB,posB)
 	else:
 		altA="N[{}:{}[".format(chrB,posB)
-		altB="]{}:{}]N".format(chrB,posB)
+		#altB="]{}:{}]N".format(chrB,posB)
 
 	
 
@@ -138,6 +138,5 @@ for line in open(args.fusion):
 				qual=content[ data["filter"]["column"] ].replace(data["filter"]["delimiter"],",")
 
 	print( required_columns.format(chrA,posA,ID+"_1",altA,qual,filt,INFO,required_format,FORMAT) )
-	print( required_columns.format(chrB,posB,ID+"_2",altB,qual,filt,INFO,required_format,FORMAT) )
 
 	i+=1
