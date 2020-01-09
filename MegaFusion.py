@@ -111,6 +111,10 @@ for line in open(args.fusion):
 			if "none" in data["custom"][entry]:
 				if data["custom"][entry]["none"] ==  content[ data["custom"][entry]["column"] ]:
 					continue
+			if "remove" in data["custom"][entry]:
+				for r in data["custom"][entry]["remove"]:
+					content[ data["custom"][entry]["column"] ]=content[ data["custom"][entry]["column"] ].replace(r,"")
+
 			INFO+= ";{}={}".format(entry,content[ data["custom"][entry]["column"] ])
 			
 
@@ -123,6 +127,9 @@ for line in open(args.fusion):
 			if "none" in data["custom"][entry]:
 				if data["custom"][entry]["none"] ==  content[ data["custom"][entry]["column"] ]:
 					continue
+			if "remove" in data["custom"][entry]:
+				for r in data["custom"][entry]["remove"]:
+					entry=entry.replace(r,"")
 			FORMAT+= ":{}={}".format(entry,content[ data["custom"][entry]["column"] ])
 
 	ID="{}_Fusion_{}".format(data["source"],i)

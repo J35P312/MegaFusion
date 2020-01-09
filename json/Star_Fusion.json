@@ -1,0 +1,70 @@
+{
+	"header": "#",
+	"source": "Star-Fusion",
+	"delimiter": "\t",
+	"filter":{
+		"filter":0,
+		"column":0,
+		"delimiter": "",
+		"pass":""
+	},
+	"required":{
+
+		"split_reads": 1,
+		"discordant_pairs": 2,
+		"geneA": {"column":4,
+                                "delimiter": "^",
+                                "element": 0
+                                },
+		"geneB":{"column":6,
+                                "delimiter": "^",
+                                "element": 0
+                                },
+		"chromosomeA": {"column":5,
+				"delimiter": ":",
+				"element": 0
+				},
+		"chromosomeB": {"column":7,
+				"delimiter": ":",
+				"element": 0
+				},
+		"posA": {"column":5,
+				"delimiter": ":",
+				"element": 1
+				},
+		"posB": {"column":7,
+				"delimiter": ":",
+				"element": 1
+				},
+		"strand1": {"column":5,
+			"delimiter": ":",
+			"element": -1
+			},
+		"strand2": {"column":7,
+			"delimiter": ":",
+			"element": -1
+		}
+
+	},
+	"custom": {
+		"ST":{"column":3,
+		"description":"Splice type",
+		"type":"String",
+		"entry":"FORMAT",
+		"none":"."
+		},
+		"STARFUSION_ANNOTS":{"column":-1,
+		"description":"Star-Fusion annotation column",
+		"type":"String",
+		"entry":"INFO",
+		"none":".",
+		"remove":["[\"","\"]","\""]
+		},
+		"FFPM":{"column":9,
+		"description":"Fusion transcript FFPM",
+		"type":"Float",
+		"entry":"FORMAT",
+		"none":"."
+		}
+	}
+}
