@@ -9,7 +9,7 @@ def retrieve_required_entry(data,tag,content):
 	return(info)
 
 
-version = "0.0.0"
+version = "0.0.1"
 parser = argparse.ArgumentParser("""Fusion2VCF-{}: convert gene fusion tab files to SV vcf""".format(version))
 parser.add_argument('--fusion'        ,required=True , type=str,  help="path to fusion tab file")
 parser.add_argument('--json'        ,required=True , type=str,  help="path to a config json file")
@@ -130,7 +130,7 @@ for line in open(args.fusion):
 			if "remove" in data["custom"][entry]:
 				for r in data["custom"][entry]["remove"]:
 					entry=entry.replace(r,"")
-			FORMAT+= ":{}={}".format(entry,content[ data["custom"][entry]["column"] ])
+			FORMAT+= ":{}".format(content[ data["custom"][entry]["column"] ])
 
 	ID="{}_Fusion_{}".format(data["source"],i)
 	qual="."
