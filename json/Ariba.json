@@ -1,19 +1,19 @@
 {
 	"header": "#",
-	"source": "Ariba",
+	"source": "Arriba",
 	"delimiter": "\t",
 	"filter":{
 
 		"filter":1,
-		"column":19,
+		"column":26,
 		"delimiter": ",",
 		"pass":"."
 
 	},
 	"required":{
 
-		"split_reads": 12,
-		"discordant_pairs": 13,
+		"split_reads": 10,
+		"discordant_pairs": 11,
 		"geneA":0,
 		"geneB":1,
 		"chromosomeA": {"column":4,
@@ -43,7 +43,7 @@
 
 	},
 	"custom": {
-		"FT":{"column":20,
+		"FT":{"column":27,
 		"description":"Sequence of the fusion transript",
 		"type":"String",
 		"entry":"FORMAT",
@@ -67,21 +67,23 @@
 		"entry":"INFO",
 		"none":"."
 		},
-
-		"CA":{"column":14,
+		"CA":{"column":12,
 		"description":"Coverage at gene A",
 		"type":"Float",
 		"entry":"FORMAT",
 		"none":"."
 		},
-		"CB":{"column":15,
+		"CB":{"column":13,
 		"description":"Coverage at gene B",
 		"type":"Float",
 		"entry":"FORMAT",
 		"none":"."
+		},
+		"CONF":{"column":14,
+		"description":"Fusion confidence",
+		"type":"String",
+		"entry":"INFO",
+		"none":"."
 		}
-
-
-
 	}
 }
