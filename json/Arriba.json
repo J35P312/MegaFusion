@@ -4,7 +4,7 @@
 	"delimiter": "\t",
 	"filter":{
 
-		"filter":1,
+		"filter":0,
 		"column":26,
 		"delimiter": ",",
 		"pass":"."
