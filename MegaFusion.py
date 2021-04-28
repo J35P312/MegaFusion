@@ -126,7 +126,7 @@ for line in open(args.fusion):
 		if data["custom"][entry]["entry"] == "FORMAT":
 			if "none" in data["custom"][entry]:
 				if data["custom"][entry]["none"] ==  content[ data["custom"][entry]["column"] ]:
-					continue
+					content[ data["custom"][entry]["column"] ] = "."
 			if "remove" in data["custom"][entry]:
 				for r in data["custom"][entry]["remove"]:
 					entry=entry.replace(r,"")

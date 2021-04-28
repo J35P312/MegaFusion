@@ -1,6 +1,6 @@
 # MegaFusion
 Convert RNA fusion files to SV VCF. MegaFusion should function on most recent versions of python.
-MegaFusion accepts a fusion transcript file produced from any tool (such as Ariba), as well as a JSON file, specifying which columns to put in the output vcf file.
+MegaFusion accepts a fusion transcript file produced from any tool (such as Arriba), as well as a JSON file, specifying which columns to put in the output vcf file.
 
 # Install
 MegaFusion requires some recent version of python.
@@ -15,8 +15,8 @@ Specify a sample name (defualt = Bob)
 
 	python MegaFusion.py --json input.json --fusion fusion.tab --sample Sven > output.notbob.vcf
 
-The json parameter specify the path of a JSON config file, and the fusion parameter specify the path to a fusion file (produced using Ariba, star-fusion or similar tool).
-A JSON files for converting ariba and star-fusion files are provided in the json folder.
+The json parameter specify the path of a JSON config file, and the fusion parameter specify the path to a fusion file (produced using Arriba, star-fusion or similar tool).
+A JSON files for converting arriba and star-fusion files are provided in the json folder.
 
 # The JSON config file
 
