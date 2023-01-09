@@ -41,7 +41,7 @@ for entry in sorted(data["custom"].keys()):
 	except:
 		print ("invalid config")
 		quit()
-	
+
 filter_string="##FILTER=<ID={},Description=\"Not up to snuff\">"
 
 filter_set=set([])
@@ -62,9 +62,9 @@ if data["filter"]["filter"]:
 			for entry in content[data["filter"]["column"]].split(data["filter"]["delimiter"]):
 				if not entry in filter_set:
 					print (filter_string.format(entry) )
-			filter_set.add(entry)				
-			
-print("#CHROM POS ID REF ALT QUAL FILTER INFO FORMAT {}".format(args.sample))
+			filter_set.add(entry)
+
+print("#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO\tFORMAT\t{}".format(args.sample))
 
 required_INFO="SVTYPE=BND;CHRA={};CHRB={};GENEA={};GENEB={};ORIENTATION={},{}"
 required_columns="{}\t{}\t{}\tN\t{}\t{}\t{}\t{}\t{}\t{}"
@@ -73,7 +73,7 @@ i=1
 for line in open(args.fusion):
 	if line.startswith(data["header"]):
 		continue
-	
+
 	content=line.strip().split(data["delimiter"])
 
 	chrA=retrieve_required_entry(data,"chromosomeA",content)
@@ -103,7 +103,7 @@ for line in open(args.fusion):
 		altA="N[{}:{}[".format(chrB,posB)
 		#altB="]{}:{}]N".format(chrB,posB)
 
-	
+
 
 	INFO=required_INFO.format(chrA,chrB,geneA,geneB,strand1,strand2)
 	for entry in data["custom"]:
@@ -116,7 +116,7 @@ for line in open(args.fusion):
 					content[ data["custom"][entry]["column"] ]=content[ data["custom"][entry]["column"] ].replace(r,"")
 
 			INFO+= ";{}={}".format(entry,content[ data["custom"][entry]["column"] ])
-			
+
 
 	pairs=retrieve_required_entry(data,"discordant_pairs",content)
 	reads=retrieve_required_entry(data,"split_reads",content)
@@ -140,7 +140,7 @@ for line in open(args.fusion):
 			pass
 		else:
 			if not "delimiter" in data["filter"]:
-				qual=content[ data["filter"]["column"] ] 
+				qual=content[ data["filter"]["column"] ]
 			else:
 				qual=content[ data["filter"]["column"] ].replace(data["filter"]["delimiter"],",")
 
