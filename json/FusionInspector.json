@@ -1,0 +1,50 @@
+{
+	"header": "#",
+	"source": "FusionInspector",
+	"delimiter": "\t",
+		"filter":{
+
+		"filter":0,
+		"column":26,
+		"delimiter": ",",
+		"pass":"."
+
+	},
+	"required":{
+		"chromosomeA": {"column":7,
+				"delimiter": ":",
+				"element": 0
+				},
+		"chromosomeB": {"column":10,
+				"delimiter": ":",
+				"element": 0
+				},
+		"posA": {"column":7,
+				"delimiter": ":",
+				"element": 1
+				},
+		"posB": {"column":10,
+				"delimiter": ":",
+				"element": 1
+				},
+		"strand1": {"column":7,
+			"delimiter": ":",
+			"element": 2
+			},
+		"strand2": {"column":10,
+			"delimiter": ":",
+			"element": 2
+			},
+		"geneA": {"column":0,
+			"delimiter": "--",
+			"element": 0
+			},
+		"geneB": {"column":0,
+			"delimiter": "--",
+			"element": 1
+			},
+		"split_reads": 1,
+		"discordant_pairs": 2
+	},
+	"custom": {}
+}
