@@ -11,7 +11,7 @@ MegaFusion is run using the following command:
 
 	python MegaFusion.py --json input.json --fusion fusion.tab > output.vcf
 	
-Specify a sample name (defualt = Bob)
+Specify a sample name (default = Bob)
 
 	python MegaFusion.py --json input.json --fusion fusion.tab --sample Sven > output.notbob.vcf
 
